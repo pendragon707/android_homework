@@ -128,7 +128,6 @@ public class MainFragment extends Fragment {
 
             num.setOnClickListener( v -> {
                 int pos = getAdapterPosition() + 1;
-                int currentTextColor = num.getCurrentTextColor();
                 navigator.navigateToFragment(pos);
             });
         }
