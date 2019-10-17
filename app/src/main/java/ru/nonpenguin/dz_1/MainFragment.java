@@ -125,6 +125,12 @@ public class MainFragment extends Fragment {
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             num = itemView.findViewById(R.id.item);
+
+            num.setOnClickListener( v -> {
+                int pos = getAdapterPosition() + 1;
+                int currentTextColor = num.getCurrentTextColor();
+                navigator.navigateToFragment(pos);
+            });
         }
     }
 
