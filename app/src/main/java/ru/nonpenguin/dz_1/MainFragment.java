@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
     private RecyclerView recyclerView;
     private MyDataAdapter myAdapter;
     private FragmentNavigator navigator;
-    private int savSize;
+    private int sizeOfList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState)
@@ -62,7 +62,7 @@ public class MainFragment extends Fragment {
 
         Button button = view.findViewById(R.id.add_num);
         button.setOnClickListener(v -> myAdapter.addElement());
-        myAdapter.setData(savSize);
+        myAdapter.setData(sizeOfList);
 
         return view;
     }
@@ -107,14 +107,14 @@ public class MainFragment extends Fragment {
         void setData(int size) {
             for(int i = getItemCount() + 1; i <= size; i++)
                 mData.add(i);
-            savSize = size;
-            notifyDataSetChanged();
+            sizeOfList = size;
+            notifyItemInserted(size);
         }
         void addElement() {
             int pos = getItemCount() + 1;
             mData.add(pos);
-            savSize++;
-            notifyDataSetChanged();
+            sizeOfList++;
+            notifyItemInserted(pos);
         }
     }
 
